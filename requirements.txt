@@ -1,7 +1,12 @@
 flask
 python-dotenv
 google-generativeai
+google-genai
 pypdf
 python-docx
 chromadb
 sentence-transformers
+pytesseract
+pillow
+pymupdf
+mcp[cli]
