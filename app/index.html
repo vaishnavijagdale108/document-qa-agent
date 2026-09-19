@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
 
+            <!-- Brand -->
             <div class="brand">
                 <div class="brand-icon">✦</div>
 
@@ -25,23 +27,38 @@
                 </div>
             </div>
 
+
+            <!-- Documents -->
             <div class="sidebar-section">
 
                 <h3>Documents</h3>
 
+                <!-- Document List -->
+                <div
+                    id="documentList"
+                    class="document-list"
+                >
+                    <div class="empty-documents">
+                        No documents uploaded yet
+                    </div>
+                </div>
+
+
+                <!-- Upload -->
                 <div class="upload-box">
+
                     <div class="upload-icon">↑</div>
 
                     <h4>Upload Document</h4>
 
                     <p>
-                        PDF, DOCX or TXT
+                        PDF, DOCX, TXT, MD or Images
                     </p>
 
                     <input
                         type="file"
                         id="fileInput"
-                        accept=".pdf,.docx,.txt"
+                        accept=".pdf,.docx,.txt,.md,.png,.jpg,.jpeg"
                         hidden
                     >
 
@@ -52,13 +69,19 @@
                         Choose File
                     </button>
 
-                    <p id="fileName" class="file-name">
+                    <p
+                        id="fileName"
+                        class="file-name"
+                    >
                         No document selected
                     </p>
+
                 </div>
 
             </div>
 
+
+            <!-- Current Status -->
             <div class="sidebar-section">
 
                 <h3>Current Status</h3>
@@ -76,6 +99,8 @@
 
             </div>
 
+
+            <!-- Bottom -->
             <div class="sidebar-bottom">
 
                 <button
@@ -90,7 +115,7 @@
         </aside>
 
 
-        <!-- Main Chat -->
+        <!-- Main Content -->
         <main class="main-content">
 
             <!-- Header -->
@@ -105,20 +130,23 @@
                 </div>
 
                 <div class="header-status">
+
                     <span class="status-dot"></span>
+
                     AI Ready
+
                 </div>
 
             </header>
 
 
-            <!-- Chat Area -->
+            <!-- Chat -->
             <section
                 class="chat-area"
                 id="chatArea"
             >
 
-                <!-- Welcome Message -->
+                <!-- Welcome -->
                 <div class="message assistant-message">
 
                     <div class="avatar">
@@ -138,9 +166,9 @@
                             </p>
 
                             <p>
-                                Ask me questions about your uploaded
-                                documents and I'll retrieve the relevant
-                                information and generate an answer.
+                                Upload one or more documents and ask
+                                questions about the currently selected
+                                document.
                             </p>
 
                         </div>
@@ -150,8 +178,7 @@
                 </div>
 
 
-                <!-- Suggested Questions -->
-
+                <!-- Suggestions -->
                 <div class="suggestions">
 
                     <p>Try asking:</p>
@@ -219,4 +246,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

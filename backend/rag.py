@@ -4,7 +4,10 @@ from llm import generate_answer
 
 def ask_question(question, document_id, history=None):
 
-    # Get relevant document chunks
+    # ==========================================
+    # GET RELEVANT DOCUMENT CHUNKS
+    # ==========================================
+
     context = search_documents(
         question,
         document_id
@@ -13,7 +16,10 @@ def ask_question(question, document_id, history=None):
     context = "\n".join(context)
 
 
-    # Build conversation history
+    # ==========================================
+    # BUILD CONVERSATION HISTORY
+    # ==========================================
+
     conversation = ""
 
     if history:
@@ -26,7 +32,10 @@ Assistant: {item["answer"]}
 """
 
 
-    # Add conversation history to the context
+    # ==========================================
+    # ADD HISTORY TO CONTEXT
+    # ==========================================
+
     if conversation:
 
         context = f"""
@@ -38,11 +47,19 @@ Relevant Document Context:
 """
 
 
-    # Generate answer
+    # ==========================================
+    # GENERATE ANSWER
+    # ==========================================
+
     answer = generate_answer(
         question,
-        context
+        context,
+        document_id
     )
 
+
+    # ==========================================
+    # RETURN ANSWER
+    # ==========================================
 
     return answer
