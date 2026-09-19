@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document Q&A Agent</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+
+                <div>
+                    <h2>DocuMind</h2>
+                    <p>Document Q&A Agent</p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+
+                <h3>Documents</h3>
+
+                <div class="upload-box">
+                    <div class="upload-icon">↑</div>
+
+                    <h4>Upload Document</h4>
+
+                    <p>
+                        PDF, DOCX or TXT
+                    </p>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".pdf,.docx,.txt"
+                        hidden
+                    >
+
+                    <button
+                        class="upload-button"
+                        onclick="document.getElementById('fileInput').click()"
+                    >
+                        Choose File
+                    </button>
+
+                    <p id="fileName" class="file-name">
+                        No document selected
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="sidebar-section">
+
+                <h3>Current Status</h3>
+
+                <div class="status-card">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>Agent Online</strong>
+                        <p>Ready for questions</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <button
+                    class="clear-button"
+                    onclick="clearChat()"
+                >
+                    Clear Conversation
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Chat -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="chat-header">
+
+                <div>
+                    <h1>Document Q&A</h1>
+
+                    <p>
+                        Ask questions about your documents
+                    </p>
+                </div>
+
+                <div class="header-status">
+                    <span class="status-dot"></span>
+                    AI Ready
+                </div>
+
+            </header>
+
+
+            <!-- Chat Area -->
+            <section
+                class="chat-area"
+                id="chatArea"
+            >
+
+                <!-- Welcome Message -->
+                <div class="message assistant-message">
+
+                    <div class="avatar">
+                        ✦
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-name">
+                            DocuMind
+                        </div>
+
+                        <div class="message-bubble">
+
+                            <p>
+                                Hello! 👋 I'm your Document Q&A Agent.
+                            </p>
+
+                            <p>
+                                Ask me questions about your uploaded
+                                documents and I'll retrieve the relevant
+                                information and generate an answer.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Suggested Questions -->
+
+                <div class="suggestions">
+
+                    <p>Try asking:</p>
+
+                    <div class="suggestion-list">
+
+                        <button
+                            onclick="useSuggestion('What skills does the person have?')"
+                        >
+                            What skills does the person have?
+                        </button>
+
+                        <button
+                            onclick="useSuggestion('What experience does the person have?')"
+                        >
+                            What experience does the person have?
+                        </button>
+
+                        <button
+                            onclick="useSuggestion('Summarize this document.')"
+                        >
+                            Summarize this document
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Input -->
+            <div class="input-section">
+
+                <div class="input-wrapper">
+
+                    <textarea
+                        id="questionInput"
+                        placeholder="Ask a question about your document..."
+                        rows="1"
+                        onkeydown="handleKeyDown(event)"
+                    ></textarea>
+
+                    <button
+                        id="sendButton"
+                        class="send-button"
+                        onclick="sendQuestion()"
+                    >
+                        <span>➤</span>
+                    </button>
+
+                </div>
+
+                <p class="input-hint">
+                    Press Enter to send • Shift + Enter for a new line
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
